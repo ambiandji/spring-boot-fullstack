@@ -14,7 +14,7 @@ jobs:
       postgres:
         image: postgres:14.5
         env:
-          POSTGRES_PASSWORD: java1234
+          POSTGRES_PASSWORD: java123
           POSTGRES_USER: java
           POSTGRES_DB: customer
         ports:
