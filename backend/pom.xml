@@ -160,7 +160,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--<plugin>
+            <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>3.3.2</version>
@@ -185,15 +185,15 @@
                         </tags>
                     </to>
                 </configuration>
-                <executions>
+                <!--<executions>
                     <execution>
                         <phase>package</phase>
                         <goals>
                             <goal>build</goal>
                         </goals>
                     </execution>
-                </executions>
-            </plugin>-->
+                </executions>-->
+            </plugin>
         </plugins>
     </build>
 
