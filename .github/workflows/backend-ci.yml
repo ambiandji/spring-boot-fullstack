@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     services:
       postgres:
         image: postgres:14.5
@@ -18,7 +18,7 @@ jobs:
           POSTGRES_USER: java
           POSTGRES_DB: customer
         ports:
-          - 5332:5432
+          - 5432:5432
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
