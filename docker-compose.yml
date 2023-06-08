@@ -5,7 +5,7 @@ services:
     container_name: amigos-code-postgresql-db
     environment:
       POSTGRES_USER: java
-      POSTGRES_PASSWORD: java123
+      POSTGRES_PASSWORD: java1234
       POSTGRES_DB: customer
       PGDATA: /data/postgres
     volumes:
