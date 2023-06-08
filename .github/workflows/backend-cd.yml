@@ -30,6 +30,8 @@ jobs:
         working-directory: ./backend
     steps:
       - uses: actions/checkout@v3
+      - name: Notify slack that deployment has started
+        run: curl -X POST -H 'Content-type: application/json' --data '{"text":"Deployment of ${{secrets.EB_APPLICATION_NAME}} has started!"}' https://hooks.slack.com/services/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
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
