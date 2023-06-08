@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  amigoscode-postgresql-db:
+    image: postgres
+    container_name: amigos-code-postgresql-db
+    environment:
+      POSTGRES_USER: amigos
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: customer
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5332:5432"
+    networks:
+      - amigosCodeNet
+    restart: unless-stopped
+  amigoscode-api:
+    image: ambaindji/amigoscode-api
+    container_name: amigoscode-api
+    ports:
+      - "8080:8080"
+    networks:
+      - amigosCodeNet
+    depends_on:
+      - amigoscode-postgresql-db
+    restart: unless-stopped
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://amigoscode-postgresql-db:5432/customer
+      - SPRING_DATASOURCE_USERNAME=amigos
+      - SPRING_DATASOURCE_PASSWORD=password
+networks:
+  amigosCodeNet:
+    driver: bridge
+volumes:
+  db:
